@@ -5,7 +5,7 @@ export const initialPage = async (category:string, page:number) => {
       const options = {
         headers: {
           accept: 'application/json',
-          Authorization: import.meta.env.VITE_AUTH 
+          Authorization: import.meta.env.VITE_AUTH || process.env.VITE_AUTH
         }
       };
 
@@ -18,7 +18,7 @@ export const viewMovie = async (movieId:string) => {
       const options = {
         headers: {
           accept: 'application/json',
-          Authorization: import.meta.env.VITE_AUTH
+          Authorization: import.meta.env.VITE_AUTH || process.env.VITE_AUTH
         }
       };
 
