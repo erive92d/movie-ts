@@ -19,22 +19,21 @@ export default function Selector({handleSelector, selectItem}:selectProps) {
     }
 
   },[selectItem])
-console.log(selectItem)
 
   return (
     <div className='text-gray-200'>
       <nav className='flex justify-between p-2'>
         <button 
-        className={`bg-slate-600 p-2 text-md   ${selectItem === 'popular' ? ' bg-red-600': null}`}
+        className={`${selectItem === 'popular' ? ' scale-105 duration-100 bg-gradient-to-b from-slate-500 to-slate-300': ''} bg-slate-600 p-2 text-md `}
         name="popular" onClick={handleSelector}>Most popular</button>
         <button
-        className={`bg-slate-600 p-2 text-md    ${selectItem === 'top_rated' ? ' bg-red-600': null}`}
+        className={` ${selectItem === 'top_rated' ? ' scale-105 duration-100 bg-gradient-to-b from-slate-500 to-slate-300': '' } bg-slate-600 p-2 text-md  `}
          name="top_rated" onClick={handleSelector}>Top rated</button>
         <button
-        className={`bg-slate-600 p-2 text-md    ${selectItem === 'now_playing' ? ' bg-red-600': null}`}
+        className={`  ${selectItem === 'now_playing' ? ' scale-105 duration-100 bg-gradient-to-b from-slate-500 to-slate-300': ''} bg-slate-600 p-2 text-md  `}
          name="now_playing" onClick={handleSelector}>Now playing</button>
         <button
-        className={`bg-slate-600 p-2 text-md    ${selectItem === 'upcoming' ? ' bg-red-600': null}`}
+        className={`  ${selectItem === 'upcoming' ? ' scale-105 duration-100 bg-gradient-to-b from-slate-500 to-slate-300': ''} bg-slate-600 p-2 text-md`}
         name="upcoming" onClick={handleSelector}>Upcoming</button>
       </nav>
       <div className='p-2'>
