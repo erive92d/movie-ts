@@ -16,7 +16,7 @@ export default function ViewMovie() {
             viewMovie(movieId)
             .then(data => setDetails(data))
         }
-    },[])
+    },[movieId])
 
     if(!details) {
         return <h1>Loading...</h1>
