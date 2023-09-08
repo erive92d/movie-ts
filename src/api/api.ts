@@ -5,7 +5,7 @@ export const initialPage = async (category:string, page:number) => {
       const options = {
         headers: {
           accept: 'application/json',
-          Authorization: import.meta.env.VITE_AUTH
+          Authorization: import.meta.env.VITE_AUTH 
         }
       };
 
