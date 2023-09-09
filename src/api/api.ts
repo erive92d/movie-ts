@@ -9,11 +9,11 @@ const options = {
 export const initialPage = async (category:string, page:number) => {
     const url =  `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${page}`;
      const response = await axios.get(url, options) 
-     return response.data.results
+     return response
 }
 
 export const viewMovie = async (movieId:string) => {
     const url = `https://api.themoviedb.org/3/movie/${movieId}`;
      const response = await axios.get(url, options) 
-    return response.data
+    return response
 }

@@ -4,27 +4,42 @@ import { viewMovie } from '../api/api'
 import { resultProps } from '../props/props'
 import { rateStars } from '../helpers/rating'
 import { useNavigate } from 'react-router-dom'
-
+import { motion } from 'framer-motion'
 export default function ViewMovie() {
 
     const navigate = useNavigate()
 
     const { movieId } = useParams()
-    const [details, setDetails] = useState<resultProps>()
+    const [details, setDetails] = useState<resultProps | undefined>()
+
     useEffect(() => {
+       
         if(movieId) {
-            viewMovie(movieId)
-            .then(data => setDetails(data))
+            fetchData(movieId)
         }
     },[movieId])
 
-    if(!details) {
-        return <h1>Loading...</h1>
-    }
-    // console.log(details)
+    const fetchData = async (id:string) => {
+        try {
+         
+          const response = await viewMovie(id)
+          if(response.status === 200) {
+            setDetails(response.data)
+          }
+        } catch (error) {
+            throw new Error('Could not fetch data')
+        }
+      }
 
   return (
-    <div className='h-screen flex flex-col bg-gradient-to-b from-slate-700 text-white space-y-10 p-4'  >
+    <motion.div 
+    initial={{opacity: 0, y:-100}}
+    animate={{opacity: 1, y: 0}}
+    transition={{duration: 0.5}}
+    className='h-screen flex flex-col bg-gradient-to-b from-slate-700 text-white space-y-10 p-4'  >
+          
+           {details && 
+           <>
             <button onClick={() => navigate(-1)}>Back</button>
             <div className='p-2 space-y-1'>
                 <h1 className='font-bold text-4xl'>{details.title}</h1>
@@ -46,6 +61,7 @@ export default function ViewMovie() {
                             <p>{gen.name}</p>
                         ))}                  
             </div>
-    </div>
+           </>}
+    </motion.div>
     )
 }

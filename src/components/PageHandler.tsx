@@ -11,7 +11,7 @@ interface pageProps {
 
 export default function PageHandler({handlePage, page}:pageProps) {
   return (
-    <div className='text-red-500 p-2 font-bold flex justify-around'>
+    <div className='text-cyan-500 p-2 font-bold flex justify-around'>
         <div className={page === 1 ? "hidden" : ""}>
             <button name="back"  onClick={handlePage}>Back</button>
         </div>

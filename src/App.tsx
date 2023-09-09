@@ -7,7 +7,7 @@ function App() {
 
   return (
     <Router>
-      <div className="bg-black min-h-screen">
+      <div className="bg-gray-800 min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />  
           <Route path={`/movie/:movieId`} element={<ViewMovie/>} />     

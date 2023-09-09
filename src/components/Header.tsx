@@ -18,7 +18,7 @@ export default function Header() {
   // console.log(currentTitle)
 
   return (
-    <div className='flex justify-between text-white p-2 items-center bg-gradient-to-b  from-slate-600 to-black  font-bold'>
+    <div className='flex justify-between text-cyan-400 p-2 items-center bg-gradient-to-b  from-slate-600 to-black  font-bold'>
         <div className="">
             {/* <img src={logo} width={100}/>
              */}
