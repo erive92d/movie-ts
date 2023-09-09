@@ -4,7 +4,7 @@ export default function SearchMovie() {
     <div>
         <form action="">
             <input type="text" />
-            <button>Search</button>
+            
         </form>
     </div>
   )

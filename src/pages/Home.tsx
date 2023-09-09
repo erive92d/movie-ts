@@ -3,8 +3,8 @@ import Header from '../components/Header'
 import Items from './Items'
 import { resultProps } from '../props/props'
 import { initialPage } from '../api/api'
-import Selector from '../components/Selector'
 import PageHandler from '../components/PageHandler'
+import Footer from '../components/Footer'
 
 export default function Home() {
     const [items, setItems] = useState<resultProps[]>([])
@@ -47,10 +47,10 @@ export default function Home() {
       
   return (
     <div className=''>
-        <Header/>
-        <Selector handleSelector={handleSelector} items={items} selectItem={selectItem}/>
+        <Header handleSelector={handleSelector} items={items}/>
         <Items loading={loading} items={items} />
         <PageHandler handlePage={handlePage} items={items} page={page}/>
+        <Footer />
     </div>
   )
 }
