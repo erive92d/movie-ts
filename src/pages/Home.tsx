@@ -13,21 +13,19 @@ export default function Home() {
     const [page, setPage] = useState<number>(1)
     const [loading, setLoading] = useState<boolean>(false)
     const [searchInput, setSearchInput] = useState<string | undefined>("")
+    const [hidePage, setHidePage] = useState<boolean>(false)
     useEffect(() => {
-        if(searchInput) {
-          
-          fetchSearchInput(searchInput, page)
-        } if(selectItem) {
-          console.log("regular")
+       if(selectItem) {
           fetchData(selectItem,page)
         }
-      },[selectItem,page,searchInput])
+      },[selectItem,page])
 
-      const fetchSearchInput = async (item:string, page:number) => {
+      const fetchData = async (item:string, page:number) => {
         try {
          setLoading(true)
-         const response = await searchMovie(item, page)
+         const response = await initialPage(item, page)
          if(response.status === 200) {
+          setHidePage(false)
           setItems(response.data.results)
          }
         } catch (error) {
@@ -37,19 +35,6 @@ export default function Home() {
         }
       }
 
-      const fetchData = async (item:string, page:number) => {
-        try {
-          setLoading(true)
-          const response = await initialPage(item, page)
-          if(response.status === 200) {
-            setItems(response.data.results)
-          }
-        } catch (error) {
-            throw new Error('Could not fetch data')
-        } finally {
-          setLoading(false)
-        }
-      }
 
       const handleSelector = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault()
@@ -70,14 +55,38 @@ export default function Home() {
         event.preventDefault()
         setSearchInput(event.currentTarget.value)
       }
+      const handleSearch = async (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        const limit = 6
+        const array:[] = []
+        try {
+          if(searchInput) {
+            setLoading(true)
+            const response = await searchMovie(searchInput)
+            if(response.status === 200) {
+              setHidePage(true)
+              const result:[] = response.data.results
+              for(let i = 0; i < limit; i ++) {
+                array.push(result[i])
+              }
+              setItems(array)
+            }
+          }
+         } catch (error) {
+           throw new Error('Could not fetch data')
+         } finally {
+           setLoading(false)
+         }
+      }
 
       console.log(searchInput)
   return (
     <div className=''>
         <Header handleSelector={handleSelector} items={items}/>
-        <SearchMovie handleChangeInput={handleChangeInput} />
+        <SearchMovie handleChangeInput={handleChangeInput} handleSearch={handleSearch} />
         <Items loading={loading} items={items} selectItem={selectItem} searchInput={searchInput}/>
-        <PageHandler handlePage={handlePage} items={items} page={page}/>
+        {hidePage ? null : <PageHandler handlePage={handlePage} items={items} page={page}/>
+ }
         <Footer />
     </div>
   )

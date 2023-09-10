@@ -5,8 +5,7 @@ import LoadingComp from '../components/LoadingComp'
 import {motion} from 'framer-motion'
 import noImage from '../assets/no_image.png'
 import { fadeInAnimationVariants } from '../helpers/animationVariants'
-import { useEffect, useState } from 'react'
-import { pageBanner } from '../helpers/pageTitle'
+
 interface itemProps {
     items:resultProps[]
     loading:boolean
@@ -16,23 +15,15 @@ interface itemProps {
 
 
 
-export default function Items({items, loading, selectItem, searchInput}:itemProps ) {
-    const [banner, setBanner] = useState<string | undefined>("")
-    useEffect(() => {
-                const pageTitle = pageBanner(selectItem)
-            setBanner(pageTitle)
-
-    },[selectItem])
+export default function Items({items, loading}:itemProps ) {
+    
     
   if(loading) return <LoadingComp />
 
   return (
     <div className='flex flex-col'>
-        <div className=''>
-            {searchInput ? searchInput : <p className='text-2xl p-2'>{banner}</p>}
-        </div>
-         <motion.div 
-               
+        
+                <motion.div 
                 className='flex flex-wrap 
                 lg:p-14 lg:w-2/3
                 '>
@@ -54,7 +45,7 @@ export default function Items({items, loading, selectItem, searchInput}:itemProp
                             </motion.div>
                         </Link>  
                     ))}
-        </motion.div>
+                </motion.div>
         {/* <div className='hidden lg:flex w-1/3 bg-blue-700 '>
             <ViewMovie />
         </div> */}
