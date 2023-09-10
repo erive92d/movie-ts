@@ -5,6 +5,7 @@ import { resultProps } from '../props/props'
 import { rateStars } from '../helpers/rating'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import GenreRelated from '../components/GenreRelated'
 export default function ViewMovie() {
 
     const navigate = useNavigate()
@@ -30,7 +31,7 @@ export default function ViewMovie() {
             throw new Error('Could not fetch data')
         }
       }
-
+      console.log(details)
   return (
     <motion.div 
         initial={{opacity: 0, y:-100}}
@@ -38,10 +39,13 @@ export default function ViewMovie() {
         transition={{duration: 0.5}}
         viewport={{once: true}}
         className='h-screen flex flex-col bg-gradient-to-b from-slate-700 text-white space-y-10 p-4'  >
-            
            {details && 
-           <>
-            <button onClick={() => navigate(-1)}>Back</button>
+           <div className='flex flex-col space-y-4'>
+            <div className='flex justify-between'>
+                <button onClick={() => navigate(-1)}>Back</button>
+                <button onClick={() => navigate('/')}>Home</button>
+            </div>
+           
             <div className='p-2 space-y-1'>
                 <h1 className='font-bold text-4xl'>{details.title}</h1>
                 <p className='font-thin text-sm italic'>{details.tagline}</p>
@@ -51,18 +55,21 @@ export default function ViewMovie() {
             </div>
             
             <div className='flex '>
-                    <div className='flex flex-col space-y-3 w-1/2 p-2'>
-                        <p className='italic font-thin text-md'>{details.overview}</p>
+                    <div className='flex flex-col justify-between w-1/2 p-2 '>
+                        <p className='italic font-thin text-md h-52 overflow-scroll'>{details.overview}</p>
                         <p>{details.runtime}m</p>
                     </div>
                     <img className="rounded w-1/2 p-2" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
             </div>
             <div className='flex space-x-3 italic font-thin p-2'>
-                            {details.genres.map((gen) => ( 
-                            <p>{gen.name}</p>
-                        ))}                  
+                  {details.genres.map((gen) => ( 
+                     <p>{gen.name}</p>
+            ))}              
             </div>
-           </>}
+            <div>
+                <GenreRelated genre={details.genres[0].id}/>
+            </div>
+           </div>}
     </motion.div>
     )
 }

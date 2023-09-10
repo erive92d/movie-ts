@@ -1,5 +1,6 @@
-import React from 'react'
+
 import { resultProps } from '../props/props'
+
 
 interface pageProps {
     handlePage:React.MouseEventHandler<HTMLButtonElement>
@@ -10,6 +11,7 @@ interface pageProps {
 
 
 export default function PageHandler({handlePage, page}:pageProps) {
+
   return (
     <div className="join grid grid-cols-2 lg:w-1/3 lg:mx-auto">
         <button name="back"  onClick={handlePage} className={`${page === 1 ? "btn-disabled " : ""}join-item btn btn-outline`}>Previous page</button>

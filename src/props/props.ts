@@ -14,7 +14,12 @@ export interface resultProps{
       id:number,
       name:string
     }[]
+    genre_ids: number[]
     runtime: number
     tagline: string
+    production_companies: {
+      id:number
+      logo_path:string
+    }[]
   }
   

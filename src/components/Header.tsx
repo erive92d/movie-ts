@@ -4,11 +4,10 @@ import {IoMdArrowBack} from "react-icons/io"
 interface itemsProps {
   handleSelector: React.MouseEventHandler<HTMLButtonElement>
   items: resultProps[]
+  selectItem:string
 }
 
-export default function Header({handleSelector}: itemsProps) {
-
-
+export default function Header({handleSelector, selectItem}: itemsProps) {
 
   return (
     <div className='flex justify-between 
@@ -30,21 +29,17 @@ export default function Header({handleSelector}: itemsProps) {
                     <li>
                     <label htmlFor="my-drawer" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
                     </li>
-                   
-           
-                    <li>
+                    <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
                       <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
-                    <li>
+                    <li className={`${selectItem === 'popular' ? "bg-cyan-600" : ""}`}>
                       <button name="popular" onClick={handleSelector}>Most Popular</button></li>
-                    <li>
+                    <li className={`${selectItem === 'top_rated' ? "bg-cyan-600" : ""}`}>
                       <button name="top_rated" onClick={handleSelector}>Top Rated</button>
                     </li>
-                    <li>
+                    <li className={`${selectItem === 'upcoming' ? "bg-cyan-600" : ""}`}>
                       <button name="upcoming" onClick={handleSelector}>Upcoming</button>
                     </li>
-                   
                   </ul>
-
               </div>
               
           </div>
