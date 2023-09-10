@@ -33,11 +33,12 @@ export default function ViewMovie() {
 
   return (
     <motion.div 
-    initial={{opacity: 0, y:-100}}
-    animate={{opacity: 1, y: 0}}
-    transition={{duration: 0.5}}
-    className='h-screen flex flex-col bg-gradient-to-b from-slate-700 text-white space-y-10 p-4'  >
-          
+        initial={{opacity: 0, y:-100}}
+        animate={{opacity: 1, y: 0}}
+        transition={{duration: 0.5}}
+        viewport={{once: true}}
+        className='h-screen flex flex-col bg-gradient-to-b from-slate-700 text-white space-y-10 p-4'  >
+            
            {details && 
            <>
             <button onClick={() => navigate(-1)}>Back</button>

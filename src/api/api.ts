@@ -17,3 +17,9 @@ export const viewMovie = async (movieId:string) => {
      const response = await axios.get(url, options) 
     return response
 }
+
+export const searchMovie = async (movieTitle:string, page:number) => {
+  const url = `https://api.themoviedb.org/3/search/movie?&query=${movieTitle}&include_adult=false&language=en-US&page=${page}`
+  const response = await axios.get(url, options)
+  return response
+}

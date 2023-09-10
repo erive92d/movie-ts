@@ -1,11 +1,15 @@
+// import { useEffect } from "react"
+// import { searchMovie } from "../api/api"
 
-export default function SearchMovie() {
+interface searchInputProps {
+  handleChangeInput:React.ChangeEventHandler<HTMLInputElement>
+}
+
+export default function SearchMovie({handleChangeInput}:searchInputProps) {
+
   return (
-    <div>
-        <form action="">
-            <input type="text" />
-            
-        </form>
+    <div className="p-2">
+        <input type="text" onChange={handleChangeInput} placeholder="search movie..." className="input input-bordered input-info w-full max-w-xs" />
     </div>
   )
 }

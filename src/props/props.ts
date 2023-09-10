@@ -4,8 +4,8 @@ export interface resultProps{
     overview: string,
     image: string,
     popularity:number,
-    poster_path: string
-    backdrop_path: string
+    poster_path: string | null
+    backdrop_path: string | null
     release_date: string
     video: boolean
     vote_average: number
