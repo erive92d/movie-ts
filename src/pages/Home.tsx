@@ -81,10 +81,11 @@ export default function Home() {
   return (
     <div className=''>
         <Header handleSelector={handleSelector} items={items} selectItem={selectItem}/>
-        <SearchMovie handleChangeInput={handleChangeInput} handleSearch={handleSearch} />
-        <Items loading={loading} items={items} selectItem={selectItem} searchInput={searchInput}/>
-        {hidePage ? null : <PageHandler handlePage={handlePage} items={items} page={page}/>
- }
+          <SearchMovie handleChangeInput={handleChangeInput} handleSearch={handleSearch} />
+          <Items loading={loading} items={items} selectItem={selectItem} searchInput={searchInput}/>
+          {hidePage ? null : <PageHandler handlePage={handlePage} items={items} page={page}/>
+  }
+ 
         <Footer />
     </div>
   )

@@ -11,24 +11,25 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
 
   return (
     <div className='flex justify-between 
-    text-cyan-400 p-2  bg-gradient-to-b  from-slate-600 to-black  font-bold
-    lg:p-9
+    text-cyan-400   bg-gradient-to-b  from-slate-600 to-black  font-bold
+    
     '>
           <div className="drawer">
-              <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-              <div className="drawer-content">
-                {/* Page content here */}
-                <label htmlFor="my-drawer" className="btn btn-ghost drawer-button btn-circle">      
-                  <svg className=" fill-current " xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512"><path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z"/></svg>
-                </label>
-              </div> 
-               <div className='drawer-side'>
-               <label htmlFor="my-drawer" className="drawer-overlay"></label>
-                  <ul className="menu p-4 w-40 min-h-full bg-base-200 text-base-content">
+            <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
+            <div className="drawer-content flex flex-col">
+              {/* Navbar */}
+              <div className="w-full navbar bg-base-300">
+                <div className="flex-none lg:hidden">
+                  <label htmlFor="my-drawer-3" className="btn btn-square btn-ghost">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-6 h-6 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                  </label>
+                </div> 
+                <div className="flex-1 px-2 mx-2 text-3xl font-light">MovieTS</div>
+                <div className="flex-none hidden lg:block">
+                  <ul className="menu menu-horizontal">
+                    {/* Navbar menu content here */}
                     {/* Sidebar content here */}
-                    <li>
-                    <label htmlFor="my-drawer" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
-                    </li>
+                    
                     <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
                       <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
                     <li className={`${selectItem === 'popular' ? "bg-cyan-600" : ""}`}>
@@ -39,12 +40,32 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
                     <li className={`${selectItem === 'upcoming' ? "bg-cyan-600" : ""}`}>
                       <button name="upcoming" onClick={handleSelector}>Upcoming</button>
                     </li>
+                  
                   </ul>
+                </div>
               </div>
-              
-          </div>
-        <div className="">
-             <p className="text-3xl font-light">MovieTS</p>
+                  {/* Page content here */}
+            </div> 
+              <div className="drawer-side">
+                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label> 
+                 <ul className="menu p-4 w-40 min-h-full bg-base-200">                          {/* Sidebar content here */}
+                    <li>
+                        <label htmlFor="my-drawer-3" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
+                      </li>
+                      <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
+                         <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
+                      <li className={`${selectItem === 'popular' ? "bg-cyan-600" : ""}`}>
+                         <button name="popular" onClick={handleSelector}>Most Popular</button></li>
+                      <li className={`${selectItem === 'top_rated' ? "bg-cyan-600" : ""}`}>
+                         <button name="top_rated" onClick={handleSelector}>Top Rated</button>
+                      </li>
+                      <li className={`${selectItem === 'upcoming' ? "bg-cyan-600" : ""}`}>
+                         <button name="upcoming" onClick={handleSelector}>Upcoming</button>
+                      </li>
+                          
+                   </ul>
+                        
+              </div>
         </div>
     </div>
   )
