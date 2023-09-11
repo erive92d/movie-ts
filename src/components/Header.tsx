@@ -11,7 +11,7 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
 
   return (
     <div className='flex justify-between 
-    text-cyan-400   bg-gradient-to-b  from-slate-600 to-black  font-bold
+    text-cyan-400 bg-gradient-to-b  from-slate-600 to-black  font-bold
     
     '>
           <div className="drawer">
@@ -44,13 +44,15 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
                   </ul>
                 </div>
               </div>
-                  {/* Page content here */}
             </div> 
               <div className="drawer-side">
                  <label htmlFor="my-drawer-3" className="drawer-overlay"></label> 
                  <ul className="menu p-4 w-40 min-h-full bg-base-200">                          {/* Sidebar content here */}
-                    <li>
+                      <li>
                         <label htmlFor="my-drawer-3" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
+                      </li>
+                      <li>
+                        <button>Saved Movies</button>
                       </li>
                       <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
                          <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
@@ -61,11 +63,10 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
                       </li>
                       <li className={`${selectItem === 'upcoming' ? "bg-cyan-600" : ""}`}>
                          <button name="upcoming" onClick={handleSelector}>Upcoming</button>
-                      </li>
-                          
-                   </ul>
-                        
-              </div>
+                      </li>   
+                     
+                  </ul>        
+            </div>
         </div>
     </div>
   )
