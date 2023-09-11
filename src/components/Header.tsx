@@ -11,7 +11,7 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
 
   return (
     <div className='flex justify-between 
-    text-cyan-400 bg-gradient-to-b  from-slate-600 to-black  font-bold
+    text-cyan-400 bg-gradient-to-b from-slate-600 to-black  font-bold
     
     '>
           <div className="drawer">
@@ -51,9 +51,9 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
                       <li>
                         <label htmlFor="my-drawer-3" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
                       </li>
-                      <li>
+                      {/* <li>
                         <button>Saved Movies</button>
-                      </li>
+                      </li> */}
                       <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
                          <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
                       <li className={`${selectItem === 'popular' ? "bg-cyan-600" : ""}`}>
