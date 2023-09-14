@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom"
 import { resultProps } from "../props/props"
 import {IoMdArrowBack} from "react-icons/io"
 interface itemsProps {
@@ -12,7 +13,6 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
   return (
     <div className='flex justify-between 
     text-cyan-400 bg-gradient-to-b from-slate-600 to-black  font-bold
-    
     '>
           <div className="drawer">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
@@ -29,18 +29,22 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
                   <ul className="menu menu-horizontal">
                     {/* Navbar menu content here */}
                     {/* Sidebar content here */}
-                    
-                    <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
+                    {/* <li>
+                      <Link to="/saved-movies">Save Movies</Link>
+                    </li> */}
+                     <li>
+                          <Link to="/saved-movies">Watch Later</Link>
+                      </li>
+                    <li className={`${selectItem === 'now_playing' ? "bg-cyan-600 text-white" : ""}`}>
                       <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
-                    <li className={`${selectItem === 'popular' ? "bg-cyan-600" : ""}`}>
+                    <li className={`${selectItem === 'popular' ? "bg-cyan-600 text-white" : ""}`}>
                       <button name="popular" onClick={handleSelector}>Most Popular</button></li>
-                    <li className={`${selectItem === 'top_rated' ? "bg-cyan-600" : ""}`}>
+                    <li className={`${selectItem === 'top_rated' ? "bg-cyan-600 text-white " : ""}`}>
                       <button name="top_rated" onClick={handleSelector}>Top Rated</button>
                     </li>
-                    <li className={`${selectItem === 'upcoming' ? "bg-cyan-600" : ""}`}>
+                    <li className={`${selectItem === 'upcoming' ? "bg-cyan-600 text-white" : ""}`}>
                       <button name="upcoming" onClick={handleSelector}>Upcoming</button>
                     </li>
-                  
                   </ul>
                 </div>
               </div>
@@ -51,9 +55,9 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
                       <li>
                         <label htmlFor="my-drawer-3" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
                       </li>
-                      {/* <li>
-                        <button>Saved Movies</button>
-                      </li> */}
+                      <li>
+                          <Link to="/saved-movies">Watch Later</Link>
+                      </li>
                       <li className={`${selectItem === 'now_playing' ? "bg-cyan-600" : ""}`}>
                          <button name="now_playing" onClick={handleSelector}>Now Playing</button></li>
                       <li className={`${selectItem === 'popular' ? "bg-cyan-600" : ""}`}>

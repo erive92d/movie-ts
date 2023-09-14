@@ -4,7 +4,6 @@ import Items from './Items'
 import { resultProps } from '../props/props'
 import { initialPage } from '../api/api'
 import PageHandler from '../components/PageHandler'
-import Footer from '../components/Footer'
 import SearchMovie from '../components/SearchMovie'
 import { searchMovie } from '../api/api'
 export default function Home() {
@@ -86,7 +85,7 @@ export default function Home() {
           {hidePage ? null : <PageHandler handlePage={handlePage} items={items} page={page}/>
   }
  
-        <Footer />
+       
     </div>
   )
 }

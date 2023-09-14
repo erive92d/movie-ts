@@ -39,6 +39,7 @@ export default function Items({items, loading}:itemProps ) {
             {items && items.map((item, index) => (
                  <div  key={item.id} 
                     className='w-2/4 my-2  p-2 duration-100
+                    md:w-1/4
                     lg:w-1/6 lg:m-2 lg:hover:scale-110
                     '>
                     
@@ -48,10 +49,10 @@ export default function Items({items, loading}:itemProps ) {
                         whileInView="animate"
                         viewport={{ once: true}}
                          custom={index}
-                        className=' bg-gradient-to-l from-slate-600h-82 flex flex-col '>
-                        <div className='shadow-lg shadow-cyan-700' >
+                        className=' bg-gradient-to-l from-slate-600 h-82 flex flex-col hover:shadow-lg hover:shadow-cyan-700'>
+                        <div  >
                             <label htmlFor="my_modal_7" className="" onClick={() => handlePreview(item)}>
-                                 <img src={`${item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : noImage}`} alt="poster" className='h-72 rounded-lg w-full' />
+                                 <img src={`${item.poster_path ? `https://image.tmdb.org/t/p/w500/${item.poster_path}` : noImage}`} alt="poster" className='h-72 w-full' />
                              </label>
                         </div >
 

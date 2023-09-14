@@ -30,7 +30,7 @@ export default function SaveButton({handleSave, saveItem, previewDetails}:savePr
 
     return (
     <div>
-        {isSaved ? <button>SAVED</button> : <button onClick={(e) => handleSave(e, previewDetails)} className='btn btn-circle btn-success btn-md'>Save</button>
+        {isSaved ? <button className="btn btn-xs">SAVED</button> : <button onClick={(e) => handleSave(e, previewDetails)} className='btn btn-success btn-md'>Watch Later</button>
 }
     </div>
   )
