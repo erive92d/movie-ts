@@ -8,7 +8,7 @@ export default {
   plugins: [require("daisyui")],
   daisyui: {
     styled: true,
-    themes: ["cupcake", "dracula", "dark"],
+    themes: ["cupcake", "dracula", "dark", "coffee"],
     base: true,
     utils: true,
     logs: true,

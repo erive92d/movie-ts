@@ -9,7 +9,7 @@ function App() {
 
   return (
     <Router>
-      <div>
+      <div data-theme={"dark"}>
         <Routes>
           <Route path="/" element={<Home />} />  
           <Route path={`/movie/:movieId`} element={<ViewMovie/>} />   
