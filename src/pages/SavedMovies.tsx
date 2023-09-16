@@ -25,9 +25,10 @@ export default function SavedMovies() {
       
     }
 
+   
 
     return (
-      <div className="bg-slate-900 p-2">
+      <div className="bg-slate-900 p-2 h-screen">
         <div className="flex justify-between items-center p-2">
             <button onClick={() => navigate(-1)} className="btn btn-sm btn-info">Back</button>
             <p className="text-lg btn btn-active">Watch Later</p>
@@ -35,7 +36,7 @@ export default function SavedMovies() {
         <div className="
         md:flex md:flex-wrap
         ">
-          {grabMovies && grabMovies.map((movies) => (
+          {grabMovies.length === 0 ? <h1 className="text-center text-3xl">No movies saved..</h1> : grabMovies.map((movies) => (
             <div className="card w-96 bg-base-100 shadow-xl m-2
             lg:w-64
             ">

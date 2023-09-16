@@ -27,8 +27,7 @@ export default function PreviewMovie({previewDetails}:previewProps) {
     <div className=''>
         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
         <div className="modal">
-          <div className="modal-box text-slate-200 shadow-md shadow-cyan-500" >
-             
+          <div style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${previewDetails.backdrop_path})`}} className="modal-box text-slate-200 shadow-md shadow-cyan-500 bg-cover bg-blend-overlay" >
               <div className='p-2 space-y-1'>
                     <h1 className='font-bold text-2xl'>{previewDetails.title}</h1>
                     <p className='font-thin text-sm italic'>{previewDetails.tagline}</p>
