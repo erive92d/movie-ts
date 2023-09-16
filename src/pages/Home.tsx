@@ -6,6 +6,9 @@ import { initialPage } from '../api/api'
 import PageHandler from '../components/PageHandler'
 import SearchMovie from '../components/SearchMovie'
 import { searchMovie } from '../api/api'
+
+
+
 export default function Home() {
     const [items, setItems] = useState<resultProps[]>([])
     const [selectItem, setSelectItem] = useState<string>("popular")

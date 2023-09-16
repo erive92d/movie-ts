@@ -21,23 +21,42 @@ export default function PreviewMovie({previewDetails}:previewProps) {
       setSaveItem([...saveItem, items])
     }
   }
+
+  // console.log(previewDetails)
   
 
   return (
     <div className=''>
         <input type="checkbox" id="my_modal_7" className="modal-toggle" />
         <div className="modal">
-          <div style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${previewDetails.backdrop_path})`}} className="modal-box text-slate-200 shadow-md shadow-cyan-500 bg-cover bg-blend-overlay" >
+          <div style={{backgroundImage: `url(https://image.tmdb.org/t/p/w500/${previewDetails.backdrop_path})`}} className="modal-box text-slate-200 shadow-md shadow-cyan-500 bg-cover bg-blend-soft-light" >
               <div className='p-2 space-y-1'>
                     <h1 className='font-bold text-2xl'>{previewDetails.title}</h1>
                     <p className='font-thin text-sm italic'>{previewDetails.tagline}</p>
                     <div className='flex items-center justify-between'>
-                      <p className='text-yellow-500 text-2xl'>{rateStars(previewDetails.vote_average)}</p>
-                      <p className=' font-extralight'>{previewDetails.release_date}</p>
+                      {/* <p className='text-yellow-500 text-2xl'>{rateStars(previewDetails.vote_average)}</p> */}
+                      {/* <p className=' font-extralight'>{previewDetails.release_date}</p> */}
                     </div>
-                    <div className='flex lg:flex-col-reverse'>
-                        
+                    {/* <div className='flex lg:flex-col-reverse'>
                         <img className="rounded w-2/3 mx-auto lg:w-1/3" src={`https://image.tmdb.org/t/p/w500/${previewDetails.poster_path}`} />
+                    </div> */}
+                    <div>
+                        <table className='table'>
+                          <thead>
+                            <tr>
+                              <th>Rating</th>
+                              <th>Release Data</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                                <td  className='text-yellow-500 text-2xl'>{rateStars(previewDetails.vote_average)}</td>
+                                <td>{previewDetails.release_date} </td>
+                          
+                            </tr>
+                          </tbody>
+                        </table>
                     </div>
               </div>
                       <p className="py-4">{previewDetails.overview}</p> 
