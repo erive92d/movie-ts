@@ -34,33 +34,25 @@ export default function PreviewMovie({previewDetails}:previewProps) {
                     <h1 className='font-bold text-2xl'>{previewDetails.title}</h1>
                     <p className='font-thin text-sm italic'>{previewDetails.tagline}</p>
                     <div className='flex items-center justify-between'>
-                      {/* <p className='text-yellow-500 text-2xl'>{rateStars(previewDetails.vote_average)}</p> */}
-                      {/* <p className=' font-extralight'>{previewDetails.release_date}</p> */}
-                    </div>
-                    {/* <div className='flex lg:flex-col-reverse'>
-                        <img className="rounded w-2/3 mx-auto lg:w-1/3" src={`https://image.tmdb.org/t/p/w500/${previewDetails.poster_path}`} />
-                    </div> */}
+                    </div>               
                     <div>
                         <table className='table'>
                           <thead>
                             <tr>
                               <th>Rating</th>
-                              <th>Release Data</th>
-                            
+                              <th>Release Date</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                                 <td  className='text-yellow-500 text-2xl'>{rateStars(previewDetails.vote_average)}</td>
-                                <td>{previewDetails.release_date} </td>
-                          
+                                <td>{previewDetails.release_date} </td> 
                             </tr>
                           </tbody>
                         </table>
                     </div>
               </div>
                       <p className="py-4">{previewDetails.overview}</p> 
-              {/* <Link className='btn btn-info' to={`/movie/${previewDetails.id}`}>View</Link>    */}
               <div className='text-center'>
                 <SaveButton previewDetails={previewDetails} handleSave={handleSave} saveItem={saveItem} />
               </div>

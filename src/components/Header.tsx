@@ -14,7 +14,7 @@ export default function Header({handleSelector, selectItem}: itemsProps) {
     <div className='flex justify-between 
     text-cyan-400 bg-gradient-to-b from-slate-600 to-black  font-bold
     '>
-          <div className="drawer">
+          <div className="drawer z-10">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
             <div className="drawer-content flex flex-col">
               {/* Navbar */}

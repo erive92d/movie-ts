@@ -5,7 +5,6 @@ import { resultProps } from '../props/props'
 import { initialPage } from '../api/api'
 import PageHandler from '../components/PageHandler'
 import SearchMovie from '../components/SearchMovie'
-import { searchMovie } from '../api/api'
 
 
 
@@ -14,7 +13,6 @@ export default function Home() {
     const [selectItem, setSelectItem] = useState<string>("popular")
     const [page, setPage] = useState<number>(1)
     const [loading, setLoading] = useState<boolean>(false)
-    const [searchInput, setSearchInput] = useState<string | undefined>("")
     const [hidePage, setHidePage] = useState<boolean>(false)
     useEffect(() => {
        if(selectItem) {
@@ -53,38 +51,12 @@ export default function Home() {
         }
       }
 
-      const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-        event.preventDefault()
-        setSearchInput(event.currentTarget.value)
-      }
-      const handleSearch = async (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault()
-        const limit = 6
-        const array:[] = []
-        try {
-          if(searchInput) {
-            setLoading(true)
-            const response = await searchMovie(searchInput)
-            if(response.status === 200) {
-              setHidePage(true)
-              const result:[] = response.data.results
-              for(let i = 0; i < limit; i ++) {
-                array.push(result[i])
-              }
-              setItems(array)
-            }
-          }
-         } catch (error) {
-           throw new Error('Could not fetch data')
-         } finally {
-           setLoading(false)
-         }
-      }
+      
   return (
     <div className=''>
         <Header handleSelector={handleSelector} items={items} selectItem={selectItem}/>
-          <SearchMovie handleChangeInput={handleChangeInput} handleSearch={handleSearch} />
-          <Items loading={loading} items={items} selectItem={selectItem} searchInput={searchInput}/>
+          <SearchMovie />
+          <Items loading={loading} items={items} selectItem={selectItem}/>
           {hidePage ? null : <PageHandler handlePage={handlePage} items={items} page={page}/>
   }
  
