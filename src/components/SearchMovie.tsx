@@ -53,7 +53,7 @@ export default function SearchMovie() {
 function SearchResult({result, isLoading}:ResultProps) {
 
   return (
-    <div className="bg-slate-500 w-96  text-white absolute top-16 rounded-lg px-3 max-h-72 overflow-auto ">
+    <div className="bg-slate-500 w-96 lg:w-full  text-white absolute top-16 rounded-lg px-3 max-h-72 overflow-auto ">
       {isLoading && <h1>Loading...</h1>}
       {result && result.map((movie) => (
         <Link className="flex gap-2 border-b-2 border-b-cyan-500 py-1" to={`/movie/${movie.id}`} key={movie.id}>
