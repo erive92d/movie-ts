@@ -31,10 +31,9 @@ export default function Items({items, loading}:itemProps ) {
 //    console.log(previewDetails)
   if(loading) return <LoadingComp />
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col' >
          <motion.div 
-             className='flex flex-wrap 
-             lg:p-14 lg:w-2/3 lg:mx-auto
+             className='flex flex-wrap lg:justify-center lg:p-5
             '>
             {items && items.map((item, index) => (
                  <div  key={item.id} 
@@ -61,10 +60,7 @@ export default function Items({items, loading}:itemProps ) {
                  </div>  
                     ))}         
 
-                    {previewDetails && <PreviewMovie previewDetails={previewDetails}/>   }
-                              
-
-                   
+                    {previewDetails && <PreviewMovie previewDetails={previewDetails}/>   }                                    
         </motion.div>
        
         

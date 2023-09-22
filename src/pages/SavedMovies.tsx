@@ -4,6 +4,7 @@ import { getMovies, saveMovie } from "../localstorage/saveMovies"
 import { resultProps } from "../props/props"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
+import { rateStars } from "../helpers/rating"
 
 export default function SavedMovies() {
 
@@ -26,7 +27,6 @@ export default function SavedMovies() {
     }
 
    
-
     return (
       <div className="bg-slate-900 p-2 h-screen">
         <div className="flex justify-between items-center p-2">
@@ -40,17 +40,25 @@ export default function SavedMovies() {
             <div className="card w-96 bg-base-100 shadow-xl m-2
             lg:w-64
             ">
-              <figure><img src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`}  alt="Shoes" /></figure>
-              <div className="card-body">
-                <h2 className="card-title">
-                  {movies.title}
-                </h2>
-                <p className="text-sm font-thin italic">{movies.overview}</p>
-                <div className="card-actions justify-end">
-                  <DeleteButton movieId={movies.id} handleDelete={handleDelete}/>
-                </div>
               
-              </div>
+              <div className="flex">
+                <div className="flex gap-5">
+                  <img src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} className="w-1/3"/>
+                  <div className="w-1/3">
+                    <h2 >
+                      {movies.title}
+                    </h2>
+                    <p className="text-yellow-400">
+                        {rateStars(movies.vote_average)}
+                    </p>
+                  </div>
+                 
+                </div>
+                <div className="card-actions justify-end">
+                    <DeleteButton movieId={movies.id} handleDelete={handleDelete}/>
+                </div>
+
+                </div>
               
             </div>
             // <div className="carousel-item ">

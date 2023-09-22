@@ -53,8 +53,8 @@ export default function Home() {
 
       
   return (
-    <div className=''>
-        <Header handleSelector={handleSelector} items={items} selectItem={selectItem}/>
+    <div className='lg:w-2/3 lg:mx-auto lg:bg-black'>
+          <Header handleSelector={handleSelector} items={items} selectItem={selectItem}/>
           <SearchMovie />
           <Items loading={loading} items={items} selectItem={selectItem}/>
           {hidePage ? null : <PageHandler handlePage={handlePage} items={items} page={page}/>
