@@ -25,7 +25,7 @@ export const viewMovie = async (movieId:string) => {
     return response
 }
 
-export const searchMovie = async (movieTitle:string, type:string):Promise<resultProps[]> => {
+export const fetchSearch = async (movieTitle:string, type:string):Promise<resultProps[]> => {
   const url = `https://api.themoviedb.org/3/search/${type}?&query=${movieTitle}&include_adult=false&language=en-US`
   const response = await axios.get(url, options)
   return response.data.results
@@ -56,11 +56,4 @@ export const fetchPeople = async () => {
   const url = 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1';
   const response = await axios.get(url, options)
   return response.data.results.slice(0,10)
-}
-
-export const fetchSearchPeople = async (name:string) => {
-  const url = `https://api.themoviedb.org/3/search/person?&query=${name}&&include_adult=false&language=en-US&page=1`;
-  const response = await axios.get(url, options)
-  return response.data.results
-
 }
