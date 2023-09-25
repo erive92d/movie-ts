@@ -1,5 +1,6 @@
 export interface resultProps{
     id: number,
+    adult:boolean
     title: string,
     overview: string,
     image: string,
@@ -21,5 +22,19 @@ export interface resultProps{
       id:number
       logo_path:string
     }[]
+    name:string
+  }
+
+
+  export interface PersonProps {
+    adult:boolean
+    gender: number
+    id: number
+    known_for: resultProps[]
+    known_for_department: string
+    name:string
+    popularity: number
+    profile_path: string
+
   }
   

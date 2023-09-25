@@ -10,7 +10,7 @@ const options = {
 export const getPopulars = async () => {
   const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
   const response = await axios.get(url, options)
-  return response
+  return response.data.results.slice(0,9)
 }
 
 export const initialPage = async (category:string, page:number) => {
@@ -25,8 +25,8 @@ export const viewMovie = async (movieId:string) => {
     return response
 }
 
-export const searchMovie = async (movieTitle:string):Promise<resultProps[]> => {
-  const url = `https://api.themoviedb.org/3/search/movie?&query=${movieTitle}&include_adult=false&language=en-US`
+export const searchMovie = async (movieTitle:string, type:string):Promise<resultProps[]> => {
+  const url = `https://api.themoviedb.org/3/search/${type}?&query=${movieTitle}&include_adult=false&language=en-US`
   const response = await axios.get(url, options)
   return response.data.results
 }
@@ -35,4 +35,32 @@ export const movieByGenre = async () => {
   const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en'
   const response = await axios.get(url, options)
   return response
+}
+
+export const fetchFeatures = async (feat:string | undefined, page:number) => {
+  if(feat) {
+    const url =  `https://api.themoviedb.org/3/${feat}/popular?language=en-US&page=${page}`;
+    const response = await axios.get(url, options)
+    return response.data.results
+  }
+
+}
+
+export const fetchTrending = async (current:string) => {
+  const url = `https://api.themoviedb.org/3/trending/${current}/week?language=en-US`;
+  const response = await axios.get(url, options)
+  return response.data.results
+}
+
+export const fetchPeople = async () => {
+  const url = 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1';
+  const response = await axios.get(url, options)
+  return response.data.results.slice(0,10)
+}
+
+export const fetchSearchPeople = async (name:string) => {
+  const url = `https://api.themoviedb.org/3/search/person?&query=${name}&&include_adult=false&language=en-US&page=1`;
+  const response = await axios.get(url, options)
+  return response.data.results
+
 }

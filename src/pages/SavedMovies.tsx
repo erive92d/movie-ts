@@ -5,7 +5,7 @@ import { resultProps } from "../props/props"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
 import { rateStars } from "../helpers/rating"
-
+import NoImage from '../assets/no_image.png'
 export default function SavedMovies() {
 
     const navigate= useNavigate()
@@ -43,7 +43,7 @@ export default function SavedMovies() {
               
               <div className="flex">
                 <div className="flex gap-5">
-                  <img src={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} className="w-1/3"/>
+                  <img src={movies.poster_path ? `https://image.tmdb.org/t/p/w500/${movies.poster_path}` : NoImage} className="w-1/3"/>
                   <div className="w-1/3">
                     <h2 >
                       {movies.title}
