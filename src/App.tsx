@@ -23,19 +23,19 @@ function App() {
         <div data-theme={"lemonade"} className='bg-gray-300 min-h-screen lg:w-2/3 lg:mx-auto'>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} />  
-            <Route path={`/movie/:movieId`} element={<ViewMovie/>} /> 
-            <Route path={`/feature/:feat`} element={<ViewFeature/>} /> 
-            <Route path="*"  element={<ErrorPage/>} />
-            <Route path="/popular" element={<PagePersons/>} />
+            <Route path="/" element={<Home />} />
+            <Route path={`/:format/:movieId`} element={<ViewMovie />} />
+            <Route path={`/feature/:feat`} element={<ViewFeature />} />
+            <Route path="*" element={<ErrorPage />} />
+            <Route path="/popular" element={<PagePersons />} />
             <Route path="/saved-movies" element={<SavedMovies />} />
           </Routes>
           <Footer />
         </div>
-       
+
       </Router>
     </QueryClientProvider>
-   
+
   )
 }
 

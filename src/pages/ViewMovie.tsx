@@ -8,20 +8,20 @@ export default function ViewMovie() {
 
     const navigate = useNavigate()
 
-    const { movieId } = useParams()
+    const { format, movieId } = useParams()
     const [details, setDetails] = useState<resultProps | undefined>()
 
     useEffect(() => {
 
         if (movieId) {
-            fetchData(movieId)
+            fetchData(movieId, format)
         }
     }, [movieId])
 
-    const fetchData = async (id: string) => {
+    const fetchData = async (id: string, format: string) => {
         try {
 
-            const response = await viewMovie(id)
+            const response = await viewMovie(id, format)
             if (response.status === 200) {
                 setDetails(response.data)
             }
@@ -30,7 +30,7 @@ export default function ViewMovie() {
         }
     }
     return (
-          <div className='py-4'>
+        <div className='py-4'>
             {details &&
                 <div className='flex flex-col space-y-4 '>
                     <div className='px-2 flex justify-between'>
@@ -57,19 +57,19 @@ export default function ViewMovie() {
                         <div className='p-4 '>
                             <div className='flex items-center gap-2 overflow-x-auto'>
                                 <h1 className='text-md font-bold'>Genre:</h1>
-                                    {details.genres.slice(0,2).map((gen) => (
-                                        <p className='text-md '>{gen.name}</p>
-                                    ))}    
+                                {details.genres.slice(0, 2).map((gen) => (
+                                    <p className='text-md '>{gen.name}</p>
+                                ))}
                             </div>
                             <div className='flex items-center gap-2'>
                                 <h1 className='text-md font-bold'>Rating:</h1>
-                                   {Math.floor(details.vote_average)} / 10 <span className='text-yellow-500'>★</span>
+                                {Math.floor(details.vote_average)} / 10 <span className='text-yellow-500'>★</span>
                             </div>
                             <div className='py-4'>
                                 <h1 className='font-bold text-center'>Overview</h1>
                                 <p>{details.overview}</p>
                             </div>
-                                          
+
                         </div>
 
                         {/* <div className='p-2 space-y-1 '>
@@ -96,8 +96,8 @@ export default function ViewMovie() {
 
                     </div>
 
-                   
-                  
+
+
                 </div>}
         </div>
     )
