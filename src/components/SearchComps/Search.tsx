@@ -6,13 +6,14 @@ import UseDebounce from "../../helpers/UseDebounce"
 import { useQuery } from "@tanstack/react-query"
 import {  fetchSearch } from "../../api/api"
 import Dropdown from "../Dropdown"
-
+import SearchResultPeople from "./SearchResultPeople"
 
 export default function Search() {
 
   const [input, setInput] = useState<string>("")
 
   const [formatSearch, setFormat] = useState("movie")
+
 
   const {debouncedValue, loading} = UseDebounce(input, 500)
    const {data} = useQuery({
@@ -38,6 +39,7 @@ export default function Search() {
   const options = [
     "movie", "tv", "person"
 ]
+  
 
   return (
     <div className=" flex items-center lg:w-2/3 lg:mx-auto lg:justify-center relative w-full">
@@ -52,7 +54,9 @@ export default function Search() {
             {loading && <span className="loading loading-infinity loading-lg text-cyan-500"></span>}
           </div>
         </div>
-        {data  && <SearchResult  result={data}  /> }
+        {data && formatSearch === "person" && <SearchResultPeople personResult={data}/>}
+        {data && formatSearch === "tv" && <SearchResult movieResult={data} />}
+        {data && formatSearch === "movie" && <SearchResult movieResult={data}/>}
     </div>
   )
 }

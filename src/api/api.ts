@@ -1,5 +1,4 @@
 import axios from "axios";
-import { resultProps } from "../props/props";
 const options = {
   headers: {
     accept: 'application/json',
@@ -25,7 +24,7 @@ export const viewMovie = async (movieId:string) => {
     return response
 }
 
-export const fetchSearch = async (movieTitle:string, type:string):Promise<resultProps[]> => {
+export const fetchSearch = async (movieTitle:string, type:string) => {
   const url = `https://api.themoviedb.org/3/search/${type}?&query=${movieTitle}&include_adult=false&language=en-US`
   const response = await axios.get(url, options)
   return response.data.results
