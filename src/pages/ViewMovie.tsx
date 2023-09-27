@@ -43,8 +43,8 @@ export default function ViewMovie() {
                         </div>
                         <div className='p-4'>
                             <div className='flex items-center gap-2'>
-                                <h1 className='font-bold text-2xl font-sans'>{details.title}</h1>
-                                <p className='text-xs'>({details.release_date})</p>
+                                <h1 className='font-bold text-2xl font-sans'>{details.title || details.name}</h1>
+                                {details.release_date ? <p className='text-xs'>({details?.release_date})</p> : null}
                             </div>
                             <div className='flex gap-2 text-sm'>
                                 <p>{details.adult ? "R" : "PG-13"}</p>

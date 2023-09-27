@@ -17,7 +17,7 @@ export default function Search() {
 
   const { debouncedValue, loading } = UseDebounce(input, 500)
   const { data } = useQuery({
-    queryKey: ["static", debouncedValue],
+    queryKey: ["static", debouncedValue, formatSearch],
     queryFn: () => {
       if (debouncedValue) {
         return fetchSearch(debouncedValue, formatSearch)

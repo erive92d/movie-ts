@@ -21,6 +21,7 @@ export default function SearchResult({ movieResult, format }: ResultProps) {
             {movie.vote_average && <p>{Math.floor(movie.vote_average)} / 10 <span className="text-yellow-400">★</span></p>
             }
           </div>
+          <p className="text-right w-full font-thin italic">{format === "movie" ? "movie" : "tv show"}</p>
         </Link>
       ))}
     </div>
