@@ -13,15 +13,15 @@ export default function ViewMovie() {
 
     useEffect(() => {
 
-        if (movieId) {
+        if (movieId && format) {
             fetchData(movieId, format)
         }
     }, [movieId])
 
-    const fetchData = async (id: string, format: string) => {
+    const fetchData = async (id: string, type: string) => {
         try {
 
-            const response = await viewMovie(id, format)
+            const response = await viewMovie(id, type)
             if (response.status === 200) {
                 setDetails(response.data)
             }

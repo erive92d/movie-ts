@@ -10,7 +10,6 @@ interface ResultProps {
 }
 
 export default function SearchResult({ movieResult, format }: ResultProps) {
-  console.log(movieResult)
 
   return (
     <div className="bg-slate-100 w-3/4 lg:w-full absolute top-16 rounded-lg px-3 max-h-72 overflow-auto ">
