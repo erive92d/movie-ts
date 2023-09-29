@@ -1,4 +1,5 @@
 import axios from "axios";
+import { PersonProps, resultProps } from "../props/props";
 const options = {
   headers: {
     accept: 'application/json',
