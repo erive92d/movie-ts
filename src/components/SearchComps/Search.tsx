@@ -7,7 +7,9 @@ import { useQuery } from "@tanstack/react-query"
 import { fetchSearch } from "../../api/api"
 import { resultProps, PersonProps } from "../../props/props"
 import Dropdown from "../Dropdown"
+import PlaceHolder from "./Placeholder"
 
+type SearchProps = resultProps & PersonProps
 
 export default function Search() {
 
@@ -17,7 +19,7 @@ export default function Search() {
 
 
   const { debouncedValue, loading } = UseDebounce(input, 500)
-  const { data } = useQuery({
+  const { data } = useQuery<SearchProps[] | undefined>({
     queryKey: ["static", debouncedValue, formatSearch],
     queryFn: () => {
       if (debouncedValue) {
@@ -41,16 +43,16 @@ export default function Search() {
     "movie", "tv", "person"
   ]
 
-  console.log(data)
+  const { placeholder } = PlaceHolder(formatSearch)
 
 
   return (
-    <div className=" flex items-center lg:w-2/3 lg:mx-auto lg:justify-center relative w-full">
+    <div className=" flex items-center lg:mx-auto lg:justify-center relative w-full">
       <div className="flex w-full gap-4">
-        <div className="flex gap-2 p-2">
+        <div className="flex gap-2 p-2 lg:w-full">
           <Dropdown options={options} handleFormat={handleFormat} selectedFormat={formatSearch} />
-          <input type="text" value={input} onChange={handleChange}
-            className="input
+          <input type="text" value={input} onChange={handleChange} placeholder={placeholder}
+            className="input lg:w-full
             " />
         </div>
         <div className="flex justify-center">
@@ -58,7 +60,7 @@ export default function Search() {
         </div>
       </div>
       {/* {data && formatSearch === "person" && <SearchResultPeople personResult={data} />} */}
-      {data && <SearchResult movieResult={data} format={formatSearch} />}
+      <SearchResult result={data} format={formatSearch} />
       {/* <SearchResult movieResult={data}/>} */}
     </div>
   )

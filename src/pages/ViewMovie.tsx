@@ -16,7 +16,7 @@ export default function ViewMovie() {
         if (movieId && format) {
             fetchData(movieId, format)
         }
-    }, [movieId])
+    }, [movieId, format])
 
     const fetchData = async (id: string, type: string) => {
         try {
@@ -29,6 +29,8 @@ export default function ViewMovie() {
             throw new Error('Could not fetch data')
         }
     }
+
+    console.log(details)
     return (
         <div className='py-4'>
             {details &&
@@ -57,7 +59,7 @@ export default function ViewMovie() {
                         <div className='p-4 '>
                             <div className='flex items-center gap-2 overflow-x-auto'>
                                 <h1 className='text-md font-bold'>Genre:</h1>
-                                {details.genres.slice(0, 2).map((gen) => (
+                                {details.genres?.slice(0, 2).map((gen) => (
                                     <p className='text-md '>{gen.name}</p>
                                 ))}
                             </div>
@@ -72,27 +74,7 @@ export default function ViewMovie() {
 
                         </div>
 
-                        {/* <div className='p-2 space-y-1 '>
-                            <h1 className='font-bold text-4xl'>{details.title}</h1>
-                            <p className='font-thin text-sm italic'>{details.tagline}</p>
-                            <div className='flex items-center justify-between'>
-                                <p className='text-yellow-500 text-2xl'>{rateStars(details.vote_average)}</p>
-                                <p className=' font-extralight'>{details.release_date}</p>
-                            </div>
-                        </div>
-
-                        <div className='flex lg:flex-col-reverse'>
-                            <div className='flex flex-col justify-between w-1/2 p-2 '>
-                                <p className='italic font-thin text-md h-52 overflow-auto lg:overflow-hidden'>{details.overview}</p>
-                                <p>{details.runtime}m</p>
-                            </div>
-                            <img className="rounded w-1/2 p-2 lg:w-1/3" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
-                        </div>
-                        <div className='flex space-x-3 italic font-thin p-2'>
-                            {details.genres.map((gen) => (
-                                <p>{gen.name}</p>
-                            ))}
-                        </div> */}
+                      
 
                     </div>
 
