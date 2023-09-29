@@ -6,7 +6,9 @@ import UseDebounce from "../../helpers/UseDebounce"
 import { useQuery } from "@tanstack/react-query"
 import { fetchSearch } from "../../api/api"
 import Dropdown from "../Dropdown"
-import SearchResultPeople from "./SearchResultPeople"
+import { PersonProps, resultProps } from "../../props/props"
+
+type SearchProps = resultProps & PersonProps 
 
 export default function Search() {
 
@@ -16,7 +18,7 @@ export default function Search() {
 
 
   const { debouncedValue, loading } = UseDebounce(input, 500)
-  const { data } = useQuery({
+  const { data } = useQuery<SearchProps[] | undefined>({
     queryKey: ["static", debouncedValue, formatSearch],
     queryFn: () => {
       if (debouncedValue) {
@@ -54,8 +56,8 @@ export default function Search() {
           {loading && <span className="loading loading-infinity loading-lg text-cyan-500"></span>}
         </div>
       </div>
-      {data && formatSearch === "person" && <SearchResultPeople personResult={data} />}
-      <SearchResult movieResult={data} format={formatSearch} />
+      {/* {data && formatSearch === "person" && <SearchResultPeople personResult={data} />} */}
+      <SearchResult result={data} format={formatSearch} />
       {/* <SearchResult movieResult={data}/>} */}
     </div>
   )
