@@ -1,4 +1,3 @@
-import React from 'react'
 
 interface DropdownProps {
     options: string[]
@@ -10,10 +9,10 @@ export default function Dropdown({options, handleFormat, selectedFormat}:Dropdow
     
     return (
     <div className=''>
-        <select className="select max-w-xs" onChange={handleFormat} value={selectedFormat}>
+        <select className="select max-w-xs text-black duration-200" onChange={handleFormat} value={selectedFormat}>
             {options && options.map((opt, index) => (
                 <option onClick={() =>handleFormat} value={opt} key={index}>
-                   <h1 className=' first-letter:uppercase'>{opt}</h1>
+                   <h1 className=''>{opt.toUpperCase()}</h1>
                 </option>
             ))}
         </select>

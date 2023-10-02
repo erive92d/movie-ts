@@ -3,8 +3,8 @@ import { useState, useEffect } from 'react'
 import { viewMovie } from '../api/api'
 import { resultProps } from '../props/props'
 import { useNavigate } from 'react-router-dom'
-import NewSaveButton from '../components/NewSaveButton'
-export default function ViewMovie() {
+import SaveButton from '../components/SaveButton'
+export default function ViewDetails() {
 
     const navigate = useNavigate()
 
@@ -30,14 +30,13 @@ export default function ViewMovie() {
         }
     }
 
-    console.log(details)
     return (
         <div className='py-4'>
             {details &&
                 <div className='flex flex-col space-y-4 '>
                     <div className='px-2 flex justify-between'>
                         <button className="btn btn-sm" onClick={() => navigate(-1)}>Back</button>
-                        <NewSaveButton movie={details} />
+                        <SaveButton movie={details} />
                     </div>
                     <div className='border-2 bg-white border-gray-400 w-5/6 p-3 mx-auto rounded-xl'>
                         <div className=''>

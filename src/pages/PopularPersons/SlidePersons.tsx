@@ -7,21 +7,40 @@ import NoImage from '../../assets/no_image.png'
 
 export default function PopularPerson() {
 
-    const { data } = useQuery({
+    const { data } = useQuery<PersonProps[]>({
         queryKey: ["people"],
         queryFn: fetchPeople
     })
 
     return (
-        <div >
-            <h1 className="p-2 text-black font-bold text-xl">
+        <div className=" my-2">
+            <h1 className="p-2  font-bold text-xl">
                 Popular Actors
             </h1>
+            <div className="h-96 carousel carousel-vertical">
+                {data && data.map((act, index) => (
+                        <div className="carousel-item h-50 border-b-2 p-3" key={index}>
+                            <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/5 rounded-full lg:w-1/6' />
+                            <div className="mx-auto w-1/2" key={index}>
+                            <p className=" font-bold py-2">{act.name}</p>
 
+                            {act.known_for.map((known) => (
+                                <p className="truncate">
+                                    {known.title}
+                                </p>
+                            ))}
+                        </div>
+                        </div> 
+                ))}
+              
+               
+            </div>
+
+{/* 
             <div className="flex flex-col h-72 overflow-y-scroll lg:h-96 lg:w-1/2">
                 {data && data.map((act, index) => (
                     <div className="mx-1 flex border-b-2 py-1 ">
-                        <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/4 rounded-full lg:w-1/6' />
+                        <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/5 rounded-full lg:w-1/6' />
                         <div className="mx-auto w-1/2" key={index}>
                             <p className="text-black font-bold py-2">{act.name}</p>
 
@@ -34,7 +53,7 @@ export default function PopularPerson() {
 
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

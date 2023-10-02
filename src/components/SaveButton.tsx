@@ -6,7 +6,7 @@ interface SaveProps {
     movie: resultProps
 }
 
-export default function NewSaveButton({movie}:SaveProps) {
+export default function SaveButton({movie}:SaveProps) {
     const [localMovies, setLocalMovies] = useState<resultProps[]>(getMovies())
     useEffect(() => {
         saveMovie(localMovies)

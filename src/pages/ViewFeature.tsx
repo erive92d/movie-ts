@@ -29,11 +29,7 @@ export default function ViewFeature() {
 
     return (
     <div>
-        <div>
-            <h1>
-                {feat}
-            </h1>
-        </div>
+        
         <div className="flex flex-wrap">
             {result && result.map((movie) => (
                 <div className="w-1/2 p-2">
