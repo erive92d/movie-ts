@@ -19,6 +19,9 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <div className='bg-black'>
+
+      
       <Router>
         <div data-theme={"aqua"} className=' bg-gradient-to-tr to-gray-600 from-black text-cyan-500 min-h-screen lg:w-2/3 lg:mx-auto'>
           <Header />
@@ -34,6 +37,7 @@ function App() {
         </div>
 
       </Router>
+      </div>
     </QueryClientProvider>
 
   )
