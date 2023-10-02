@@ -9,7 +9,7 @@ export default function Header() {
     <div className='flex justify-between '>
           <div className="drawer z-10">
             <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
-            <div className="drawer-content flex flex-col">
+            <div className="drawer-content flex flex-col bg-gradient-to-b  from-black to-transparent">
               {/* Navbar */}
               <div className="w-full navbar">
                 <div className="flex-none lg:hidden">
