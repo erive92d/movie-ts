@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
-import { resultProps } from "../../props/props"
 import { fetchTrending } from "../../api/api"
-import { Link } from "react-router-dom"
+// import { Link } from "react-router-dom"
 import { useState } from "react"
 import UseDebounce from "../../helpers/UseDebounce"
 import ResultCarousel from "../../components/Carousel"
@@ -14,7 +13,7 @@ export default function Trending() {
 
     const {debouncedValue, loading} = UseDebounce(currentDisplay, 1000)
 
-    const {data } = useQuery<resultProps[]>({
+    const {data } = useQuery({
         queryKey:["trending", debouncedValue],
         queryFn: () => fetchTrending(debouncedValue)
      
@@ -37,8 +36,8 @@ export default function Trending() {
             </div>  
         </div>
         {data && <ResultCarousel data={data} loading={loading}/>}
-        {currentDisplay === 'movie' ? <Link className="link" to="/feature/movie">See more popular movies</Link> : <Link  className="link" to="/feature/tv">See more popular tv shows</Link>
- } 
+        {/* {currentDisplay === 'movie' ? <Link className="link" to="/feature/movie">See more popular movies</Link> : <Link  className="link" to="/feature/tv">See more popular tv shows</Link>
+ }  */}
     </div>
   )
 }

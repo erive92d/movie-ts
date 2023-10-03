@@ -1,13 +1,12 @@
 import { useQuery } from "@tanstack/react-query"
 import { fetchPeople } from "../../api/api"
-import { PersonProps } from "../../props/props"
-import NoImage from '../../assets/no_image.png'
+import ResultCarousel from "../../components/Carousel"
 // import { Link } from "react-router-dom"
 
 
 export default function PopularPerson() {
 
-    const { data } = useQuery<PersonProps[]>({
+    const { data } = useQuery({
         queryKey: ["people"],
         queryFn: fetchPeople
     })
@@ -18,20 +17,20 @@ export default function PopularPerson() {
                 Popular Actors
             </h1>
             <div className="h-96 carousel carousel-vertical">
-                {data && data.map((act, index) => (
-                        <div className="carousel-item h-50 border-b-2 p-3" key={index}>
-                            <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/5 rounded-full lg:w-1/6' />
-                            <div className="mx-auto w-1/2" key={index}>
-                            <p className=" font-bold py-2">{act.name}</p>
+                {data && <ResultCarousel data={data} />
+                        // <div className="carousel-item h-50 border-b-2 p-3" key={index}>
+                        //     <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/5 rounded-full lg:w-1/6' />
+                        //     <div className="mx-auto w-1/2" key={index}>
+                        //     <p className=" font-bold py-2">{act.name}</p>
 
-                            {act.known_for.map((known) => (
-                                <p className="truncate">
-                                    {known.title}
-                                </p>
-                            ))}
-                        </div>
-                        </div> 
-                ))}
+                        //     {act.known_for.map((known) => (
+                        //         <p className="truncate">
+                        //             {known.title}
+                        //         </p>
+                        //     ))}
+                        // </div>
+                        // </div> 
+                }
               
                
             </div>

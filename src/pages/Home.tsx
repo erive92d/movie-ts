@@ -1,8 +1,7 @@
 
 import Search from '../components/SearchComps/Search'
-import ComingSoon from './Movies/ComingSoon'
+import Display from './Movies/Display'
 import Trending from './Movies/Trending'
-import SlidePersons from './PopularPersons/SlidePersons'
 
 
 
@@ -15,8 +14,7 @@ export default function Home() {
           <Search />
           <Trending/>
           <div className=''>
-            <SlidePersons />
-            <ComingSoon />
+            <Display />
           </div>
     </div>
   )

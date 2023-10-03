@@ -1,7 +1,7 @@
 
 export default function Footer() {
     return (
-        <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+        <footer className="footer footer-center p-10 bg-base-200 text-base-content">
             <nav className="grid grid-flow-col gap-4">
                 <a className="link link-hover" href="https://portfolio2023-erive92d.vercel.app/" target="_blank">About me</a>
                 <a className="link link-hover">Contact</a>
