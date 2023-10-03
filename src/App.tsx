@@ -20,7 +20,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
-        <div data-theme={"lemonade"} className='bg-gray-300 min-h-screen lg:w-2/3 lg:mx-auto'>
+        <div data-theme={"lemonade"} className=' bg-gray-800  text-gray-200 min-h-screen lg:w-2/3 lg:mx-auto'>
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />

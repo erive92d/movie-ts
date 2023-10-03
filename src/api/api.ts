@@ -57,3 +57,9 @@ export const fetchPeople = async () => {
   const response = await axios.get(url, options)
   return response.data.results.slice(0, 10)
 }
+
+export const fetchCategories = async (gen: string | undefined) => {
+  const url = `https://api.themoviedb.org/3/genre/${gen}/list?language=en`;
+  const response = await axios.get(url, options)
+  return response.data.genres
+}

@@ -30,7 +30,6 @@ export default function ViewMovie() {
         }
     }
 
-    console.log(details)
     return (
         <div className='py-4'>
             {details &&
@@ -74,7 +73,7 @@ export default function ViewMovie() {
 
                         </div>
 
-                      
+
 
                     </div>
 
