@@ -31,9 +31,9 @@ export default function ViewDetails() {
         <div className=''>
             {details &&
                 <div className='flex flex-col space-y-4 '>
-                    <div className=' bg-gray-700 text-white'>
-                        <div className=''>
-                            <img className=" lg:w-1/3 " src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
+                    <div className=' bg-gray-700 text-gray-300'>
+                            <div className='p-4 cghggyhtdddddddddddddddddddddddddddddddddddddddddddd]'>
+                            <img className=" lg:w-1/3 w-96 rounded mx-auto" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
                         </div>
                         <div className='p-4'>
                             <div className='flex items-center gap-2'>
