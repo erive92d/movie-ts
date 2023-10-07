@@ -1,27 +1,53 @@
-# React + TypeScript + Vite
+# Movie TS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **Movie TS**, your premier destination for discovering and saving your favorite movies and TV shows. Powered by React, TypeScript, and the sleek design of DaisyUI, this web application allows users to effortlessly search for movies and TV shows while providing the convenience of saving their selections to local storage.
 
-Currently, two official plugins are available:
+![movie](https://github.com/erive92d/movie-ts/assets/110507887/7824ccff-af0e-4a96-8c6f-94bc104d1799)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Table of Contents
 
-- Configure the top-level `parserOptions` property like this:
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Dependencies](#install-dependencies)
+  - [Start the Development Server](#start-the-development-server)
+  - [Open in Your Browser](#open-in-your-browser)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Movie and TV Show Search**: Quickly find movies and TV shows by title.
+- **LocalStorage Support**: Save your favorite movies and TV shows to your browser's local storage for later access.
+- **User-Friendly Interface**: Enjoy an intuitive and visually appealing user interface designed for an enjoyable browsing experience.
+
+## Usage
+Use the search bar to look up movies and TV shows.
+Click on a search result to view more details.
+Save your favorite movies and TV shows by clicking the 'Save' button.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## Contact
+If you have any questions, feedback, or suggestions, please feel free to reach out:
+
+Email: erive92d@gmail.com
+Enjoy browsing and discovering your favorite movies and TV shows with Movie TS!
+
+## Getting Started
+
+To get started with Movie TS, follow these steps:
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/erive92d/movie-ts.git
+cd movie-ts
+npm install
+npm run dev 
+
