@@ -1,7 +1,7 @@
 
 import Home from './pages/Home'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ViewDetails from './pages/ViewDetails';
+import ViewDetails from './pages/Movies/ViewDetails';
 import ErrorPage from './pages/ErrorPage';
 import SavedMovies from './pages/Movies/SavedMovies';
 import Footer from './components/Footer';

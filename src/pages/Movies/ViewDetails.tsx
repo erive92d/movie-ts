@@ -1,13 +1,14 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { viewMovie } from '../api/api'
-import { resultProps } from '../props/props'
-import SaveButton from '../components/SaveButton'
+import { viewMovie } from '../../api/api'
+import { resultProps } from '../../props/props'
+import SaveButton from '../../components/SaveButton'
 export default function ViewDetails() {
 
     const { format, movieId } = useParams()
     const [details, setDetails] = useState<resultProps | undefined>()
 
+    console.log(format)
     useEffect(() => {
 
         if (movieId && format) {
@@ -31,22 +32,18 @@ export default function ViewDetails() {
         <div className=''>
             {details &&
                 <div className='flex flex-col space-y-4 '>
-                    {/* <div className='px-2 flex justify-between'>
-                        <button className="btn btn-sm" onClick={() => navigate(-1)}>Back</button>
-                        
-                    </div> */}
-                    <div className=' bg-gray-700 text-white'>
-                        <div className=''>
-                            <img className=" lg:w-1/3 " src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
+                    <div className=' bg-gray-700 text-gray-300'>
+                        <div className='p-4 cghggyhtdddddddddddddddddddddddddddddddddddddddddddd]'>
+                            <img className=" lg:w-1/3 w-96 rounded mx-auto" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
                         </div>
                         <div className='p-4'>
                             <div className='flex items-center gap-2'>
-                                
+
                                 <h1 className='font-bold text-2xl font-sans'>{details.title || details.name}</h1>
                                 {details.release_date ? <p className='text-xs'>({details?.release_date})</p> : null}
-                                
+
                             </div>
-                            
+
                             <div className='flex gap-2 text-sm'>
                                 <p>{details.adult ? "R" : "PG-13"}</p>
                                 <p>{details.runtime}m</p>
@@ -69,7 +66,7 @@ export default function ViewDetails() {
                             <div className='py-4'>
                                 <h1 className='font-bold text-center'>Overview</h1>
                                 <p>{details.overview}</p>
-                                
+
                             </div>
                             <div className='text-right'>
                                 <SaveButton movie={details} />

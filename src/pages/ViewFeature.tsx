@@ -3,7 +3,6 @@ import { fetchFeatures } from "../api/api"
 import { useEffect, useState } from "react"
 import NoImage from "../assets/no_image.png"
 import { resultProps } from "../props/props"
-import CatList from "../components/Categories/CatList"
 export default function ViewFeature() {
     const { feat } = useParams()
 

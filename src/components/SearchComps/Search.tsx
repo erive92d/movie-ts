@@ -8,6 +8,7 @@ import { fetchSearch } from "../../api/api"
 import { resultProps, PersonProps } from "../../props/props"
 import Dropdown from "./Dropdown"
 import PlaceHolder from "./Placeholder"
+
 type SearchProps = resultProps & PersonProps
 
 export default function Search() {
@@ -48,10 +49,10 @@ export default function Search() {
   return (
     <div className="lg:mx-auto lg:justify-center relative w-full">
       <div className="flex w-full gap-4">
-        <div className="flex gap-2 p-2 lg:w-full">
+        <div className="flex  p-2 lg:w-full">
           <Dropdown options={options} handleFormat={handleFormat} selectedFormat={formatSearch} />
           <input type="text" value={input} onChange={handleChange} placeholder={placeholder}
-            className="input lg:w-full
+            className="input lg:w-full input-ghost rounded-none rounded-r-lg
             " />
         </div>
         <div className="flex justify-center">

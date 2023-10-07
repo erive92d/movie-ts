@@ -28,7 +28,7 @@ export default function Trending() {
     <div className="p-2 ">
         <div className="flex flex-col py-2 gap-1">
             <div className="flex justify-between items-center">
-                <h1 className="text-3xl font-bold ">Trending</h1>
+                <h1 className="text-3xl  ">Trending</h1>
                 <div>
                     <button onClick={handleTvOrMovie} name="movie" className={`btn btn-sm duration-200 ${currentDisplay === 'movie' ? "bg-cyan-500 text-white" : ""}`}>Movie</button>
                     <button onClick={handleTvOrMovie} name="tv" className={`btn btn-sm duration-200 ${currentDisplay === 'tv' ? "bg-cyan-500 text-white" : ""}`}>Tv Show</button>
