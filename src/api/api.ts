@@ -1,5 +1,4 @@
 import axios from "axios";
-import { PersonProps, resultProps } from "../props/props";
 const options = {
   headers: {
     accept: 'application/json',
@@ -10,13 +9,19 @@ const options = {
 export const getPopulars = async () => {
   const url = 'https://api.themoviedb.org/3/trending/movie/day?language=en-US'
   const response = await axios.get(url, options)
+  return response.data.results.slice(0, 5)
+}
+
+export const getComingSoon = async () => {
+  const url = 'https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1';
+  const response = await axios.get(url, options)
   return response.data.results.slice(0, 9)
 }
 
-export const initialPage = async (category: string, page: number) => {
-  const url = `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${page}`;
+export const fetchSelect = async (select: string, page?: number) => {
+  const url = `https://api.themoviedb.org/3/movie/${select}?language=en-US&page=${page}`;
   const response = await axios.get(url, options)
-  return response
+  return response.data.results
 }
 
 export const viewMovie = async (movieId: string, format: string) => {
@@ -49,7 +54,7 @@ export const fetchFeatures = async (feat: string | undefined, page: number) => {
 export const fetchTrending = async (current: string) => {
   const url = `https://api.themoviedb.org/3/trending/${current}/week?language=en-US`;
   const response = await axios.get(url, options)
-  return response.data.results
+  return response.data.results.slice(0,5)
 }
 
 export const fetchPeople = async () => {

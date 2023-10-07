@@ -14,9 +14,4 @@ export const getMovies = () => {
         return []
     }
     return JSON.parse(grabFromLocalStorage)
-//     const savedMovies = localStorage.getItem("movie")
-//     ? JSON.parse(localStorage.getItem("movie"))
-//     : [];
-
-//   return savedMovies;
 }

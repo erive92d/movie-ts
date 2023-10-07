@@ -1,9 +1,9 @@
 
 import Home from './pages/Home'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ViewMovie from './pages/ViewMovie';
+import ViewDetails from './pages/ViewDetails';
 import ErrorPage from './pages/ErrorPage';
-import SavedMovies from './pages/SavedMovies';
+import SavedMovies from './pages/Movies/SavedMovies';
 import Footer from './components/Footer';
 import {
   QueryClient,
@@ -19,21 +19,25 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Router>
-        <div data-theme={"lemonade"} className=' bg-gray-800  text-gray-200 min-h-screen lg:w-2/3 lg:mx-auto'>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path={`/:format/:movieId`} element={<ViewMovie />} />
-            <Route path={`/feature/:feat`} element={<ViewFeature />} />
-            <Route path="*" element={<ErrorPage />} />
-            <Route path="/popular" element={<PagePersons />} />
-            <Route path="/saved-movies" element={<SavedMovies />} />
-          </Routes>
-          <Footer />
-        </div>
+      <div className='bg-black'>
 
-      </Router>
+
+        <Router>
+          <div data-theme={"aqua"} className=' bg-gradient-to-tr to-gray-600 from-black text-gray-200 min-h-screen lg:w-2/3 lg:mx-auto'>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path={`/:format/:movieId`} element={<ViewDetails />} />
+              <Route path={`/feature/:feat`} element={<ViewFeature />} />
+              <Route path="*" element={<ErrorPage />} />
+              <Route path="/popular" element={<PagePersons />} />
+              <Route path="/saved-movies" element={<SavedMovies />} />
+            </Routes>
+            <Footer />
+          </div>
+
+        </Router>
+      </div>
     </QueryClientProvider>
 
   )

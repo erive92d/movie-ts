@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { fetchPeople } from "../../api/api"
-import { PersonProps } from "../../props/props"
-import NoImage from '../../assets/no_image.png'
+import ResultCarousel from "../../components/Carousel"
 // import { Link } from "react-router-dom"
 
 
@@ -13,7 +12,7 @@ export default function PopularPerson() {
     })
 
     return (
-        <div >
+        <div className=" my-2">
             <h1 className="p-2  font-bold text-xl">
                 Popular Actors
             </h1>
@@ -21,7 +20,7 @@ export default function PopularPerson() {
             <div className="flex flex-col h-72 overflow-y-scroll lg:h-96 lg:w-1/2">
                 {data && data.map((act, index) => (
                     <div className="mx-1 flex border-b-2 py-1 ">
-                        <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/4 rounded-full lg:w-1/6' />
+                        <img src={`${act.profile_path ? `https://image.tmdb.org/t/p/w500/${act.profile_path}` : NoImage}`} alt="poster" className='w-1/5 rounded-full lg:w-1/6' />
                         <div className="mx-auto w-1/2" key={index}>
                             <p className=" font-bold py-2">{act.name}</p>
 
@@ -34,7 +33,7 @@ export default function PopularPerson() {
 
                     </div>
                 ))}
-            </div>
+            </div> */}
         </div>
     )
 }

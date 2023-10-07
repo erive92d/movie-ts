@@ -31,9 +31,7 @@ export default function ViewFeature() {
 
     return (
         <div>
-            <div>
-                {/* <CatList format={feat} /> */}
-            </div>
+
             <div className="flex flex-wrap">
                 {result && result.map((movie) => (
                     <div className="w-1/2 p-2">
@@ -41,11 +39,12 @@ export default function ViewFeature() {
                             <img src={`${movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : NoImage}`} alt="poster" className='' />
                         </Link>
                     </div>
+
                 ))}
             </div>
             <div className="join grid grid-cols-2 lg:w-1/3 lg:mx-auto">
-                <button name="back" onClick={handlePage} className={`${page === 1 ? "btn-disabled " : ""}join-item btn btn-outline text-white`}>Previous page</button>
-                <button name="next" onClick={handlePage} className="join-item btn btn-outline text-white">Next</button>
+                <button name="back" onClick={handlePage} className={`${page === 1 ? "btn-disabled " : ""}join-item btn btn-outline`}>Previous page</button>
+                <button name="next" onClick={handlePage} className="join-item btn btn-outline">Next</button>
             </div>
         </div>
     )

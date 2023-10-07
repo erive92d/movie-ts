@@ -1,7 +1,7 @@
 
 import Search from '../components/SearchComps/Search'
-import Landing from './Landing'
-import SlidePersons from './PopularPersons/SlidePersons'
+import Display from './Movies/Display'
+import Trending from './Movies/Trending'
 
 
 
@@ -10,11 +10,11 @@ export default function Home() {
 
 
   return (
-    <div className='min-h-screen space-y-5'>
+    <div className='min-h-screen'>
       <Search />
-      <Landing />
+      <Trending />
       <div className=''>
-        <SlidePersons />
+        <Display />
       </div>
     </div>
   )

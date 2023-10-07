@@ -1,11 +1,11 @@
 // import { rateStars } from "../helpers/rating"
-import DeleteButton from "../components/DeleteButton"
-import { getMovies, saveMovie } from "../localstorage/saveMovies"
-import { resultProps } from "../props/props"
+import DeleteButton from "../../components/DeleteButton"
+import { getMovies, saveMovie } from "../../localstorage/saveMovies"
+import { resultProps } from "../../props/props"
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react'
-import { rateStars } from "../helpers/rating"
-import NoImage from '../assets/no_image.png'
+import { rateStars } from "../../helpers/rating"
+import NoImage from '../../assets/no_image.png'
 export default function SavedMovies() {
 
     const navigate= useNavigate()
