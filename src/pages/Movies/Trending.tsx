@@ -25,10 +25,10 @@ export default function Trending() {
     }
 
     return (
-        <div className="p-2 ">
-            <div className="flex flex-col py-2 gap-1">
-                <div className="flex justify-between items-center">
-                    <h1 className="text-2xl font-thin ">TRENDING {currentDisplay.toUpperCase()}</h1>
+        <div className="">
+            <div className="flex flex-col gap-1">
+                <div className="flex justify-between p-3 bg-black items-center">
+                    <h1 className="text-2xl font-light ">TRENDING {currentDisplay.toUpperCase()}</h1>
                     <div>
                         <button onClick={handleTvOrMovie} name="movie" className={`btn btn-sm btn-ghost duration-200 ${currentDisplay === 'movie' ? "bg-cyan-500 text-white" : ""}`}>Movie</button>
                         <button onClick={handleTvOrMovie} name="tv" className={`btn btn-sm btn-ghost duration-200 ${currentDisplay === 'tv' ? "bg-cyan-500 text-white" : ""}`}>Tv Show</button>
