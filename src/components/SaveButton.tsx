@@ -18,12 +18,16 @@ export default function SaveButton({ movie }: SaveProps) {
         event.preventDefault()
         setLocalMovies([...localMovies, movie])
     }
+    const deleteFromSave = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        const updated = localMovies.filter((mov) => mov.id !== movie.id)
+        setLocalMovies(updated)
+    }
 
     return (
         <div>
-            {isSaved ? <button className="btn btn-sm btn-disabled ">-</button> : <button className='btn btn-sm  btn-neutral  rounded-none' onClick={handleSave}>+</button>
+            {isSaved ? <button onClick={deleteFromSave} className="btn btn-sm btn-error rounded-none rounded-bl-md">-</button> : <button className='btn btn-sm  btn-neutral  rounded-none rounded-bl-md' onClick={handleSave}>+</button>
             }
-
         </div>
     )
 }

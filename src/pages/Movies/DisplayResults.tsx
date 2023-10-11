@@ -27,7 +27,7 @@ export default function DisplayResults({ data }: DisplayProps) {
                                 </Link>
 
                             </div>
-                            <div className="flex justify-between text-sm text-gray-300">
+                            <div className="flex justify-between text-sm text-gray-400">
                                 {res.release_date.split('').slice(0, 4).join("")}
                                 <p><span className="text-yellow-500">★</span>{res.vote_average}</p>
 

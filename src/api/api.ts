@@ -54,7 +54,7 @@ export const fetchFeatures = async (feat: string | undefined, page: number) => {
 export const fetchTrending = async (current: string) => {
   const url = `https://api.themoviedb.org/3/trending/${current}/week?language=en-US`;
   const response = await axios.get(url, options)
-  return response.data.results.slice(0,5)
+  return response.data.results.slice(0, 5)
 }
 
 export const fetchPeople = async () => {
