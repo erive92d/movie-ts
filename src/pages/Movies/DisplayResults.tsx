@@ -11,7 +11,7 @@ export default function DisplayResults({ data }: DisplayProps) {
         <div className="flex justify-center flex-wrap py-10">
             {data?.map((res, index) => (
                 <div key={index} className="w-2/4 lg:w-60 p-1 lg:p-5">
-                    <div className="bg-gray-800">
+                    <div className="bg-gray-900">
                         <div className="relative">
                             <div className="absolute right-0">
                                 <SaveButton movie={res} />

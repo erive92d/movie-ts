@@ -29,7 +29,7 @@ export default function Header() {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-40 min-h-full bg-base-200">                          {/* Sidebar content here */}
+          <ul className="menu p-4 w-40 min-h-full bg-black">                          {/* Sidebar content here */}
             <li>
               <label htmlFor="my-drawer-3" className="drawer-button text-2xl text-cyan-500" ><IoMdArrowBack /></label>
             </li>

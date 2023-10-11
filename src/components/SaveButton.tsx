@@ -21,7 +21,7 @@ export default function SaveButton({ movie }: SaveProps) {
 
     return (
         <div>
-            {isSaved ? <button className="btn btn-sm btn-disabled">+</button> : <button className='btn btn-sm  btn-neutral  rounded-none' onClick={handleSave}>+</button>
+            {isSaved ? <button className="btn btn-sm btn-disabled ">-</button> : <button className='btn btn-sm  btn-neutral  rounded-none' onClick={handleSave}>+</button>
             }
 
         </div>
