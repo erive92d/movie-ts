@@ -40,7 +40,6 @@ export default function Display() {
   return (
     <div>
       <Selectors handleSelect={handleSelect} selector={selector} />
-      <h1 className='p-2 text-xl bg-black font-light'>{selector.replace(/_/g, " ").toUpperCase()}</h1>
       {loading ? <span className="loading loading-bars loading-lg"></span>
         : <DisplayResults data={data} />}
       <PageHandler handlePage={handlePage} page={page} />
