@@ -25,7 +25,7 @@ export default function Trending() {
     }
 
   return (
-    <div className="p-2 ">
+    <div className="p-2 min-h-screen">
         <div className="flex flex-col py-2 gap-1">
             <div className="flex justify-between items-center">
                 <h1 className="text-3xl  ">Trending</h1>

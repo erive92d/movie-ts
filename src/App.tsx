@@ -19,12 +19,11 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className='bg-black'>
-
-      
+      <div>
       <Router>
-        <div data-theme={"aqua"} className=' bg-gradient-to-tr to-gray-600 from-black text-gray-200 min-h-screen lg:w-2/3 lg:mx-auto'>
+        <div data-theme={"aqua"} className='bg-black text-white min-h-screen'>
           <Header />
+          <div className='lg:w-3/4 mx-auto'>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path={`/:format/:movieId`} element={<ViewDetails />} />
@@ -33,6 +32,7 @@ function App() {
             <Route path="/popular" element={<PagePersons />} />
             <Route path="/saved-movies" element={<SavedMovies />} />
           </Routes>
+          </div>
           <Footer />
         </div>
 
