@@ -54,11 +54,17 @@ export const fetchFeatures = async (feat: string | undefined, page: number) => {
 export const fetchTrending = async (current: string) => {
   const url = `https://api.themoviedb.org/3/trending/${current}/week?language=en-US`;
   const response = await axios.get(url, options)
-  return response.data.results.slice(0,5)
+  return response.data.results.slice(0, 5)
 }
 
 export const fetchPeople = async () => {
   const url = 'https://api.themoviedb.org/3/person/popular?language=en-US&page=1';
   const response = await axios.get(url, options)
   return response.data.results.slice(0, 10)
+}
+
+export const fetchCategories = async (gen: string | undefined) => {
+  const url = `https://api.themoviedb.org/3/genre/${gen}/list?language=en`;
+  const response = await axios.get(url, options)
+  return response.data.genres
 }

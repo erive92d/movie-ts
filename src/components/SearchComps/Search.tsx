@@ -58,12 +58,9 @@ export default function Search() {
         <div className="flex justify-center">
           {loading && <span className="loading loading-infinity loading-lg text-cyan-500"></span>}
         </div>
-        
       </div>
-     
       {/* {data && formatSearch === "person" && <SearchResultPeople personResult={data} />} */}
       <SearchResult result={data} format={formatSearch} />
-      
       {/* <SearchResult movieResult={data}/>} */}
     </div>
   )

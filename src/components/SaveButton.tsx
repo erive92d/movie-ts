@@ -6,24 +6,28 @@ interface SaveProps {
     movie: resultProps
 }
 
-export default function SaveButton({movie}:SaveProps) {
+export default function SaveButton({ movie }: SaveProps) {
     const [localMovies, setLocalMovies] = useState<resultProps[]>(getMovies())
     useEffect(() => {
         saveMovie(localMovies)
-    },[localMovies, movie])
+    }, [localMovies, movie])
 
-    const {isSaved} = CheckSave(movie.id, localMovies)
+    const { isSaved } = CheckSave(movie.id, localMovies)
 
-    const handleSave = (event:React.MouseEvent<HTMLButtonElement>) => {
+    const handleSave = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault()
         setLocalMovies([...localMovies, movie])
     }
+    const deleteFromSave = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault()
+        const updated = localMovies.filter((mov) => mov.id !== movie.id)
+        setLocalMovies(updated)
+    }
 
-  return (
+    return (
         <div>
-            {isSaved ? <button className="btn btn-sm btn-disabled">Saved</button> :    <button className='btn btn-sm btn-success' onClick={handleSave}>Save it?</button>
+            {isSaved ? <button onClick={deleteFromSave} className="btn btn-sm btn-error rounded-none rounded-bl-md">-</button> : <button className='btn btn-sm  btn-neutral  rounded-none rounded-bl-md' onClick={handleSave}>+</button>
             }
-
         </div>
-  )
+    )
 }

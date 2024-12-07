@@ -1,48 +1,70 @@
-import { Link, useParams } from "react-router-dom"
-import { fetchFeatures } from "../api/api"
-import { useEffect, useState } from "react"
-import NoImage from "../assets/no_image.png"
-import { resultProps } from "../props/props"
+import { Link, useParams } from "react-router-dom";
+import { fetchFeatures } from "../api/api";
+import { useEffect, useState } from "react";
+import NoImage from "../assets/no_image.png";
+import { resultProps } from "../props/props";
 export default function ViewFeature() {
-    const { feat } = useParams()
-    
-    const [page, setPage] = useState<number>(1)
+  const { feat } = useParams();
 
- 
-    const [result, setResult] = useState<resultProps[]>([])
+  const [page, setPage] = useState<number>(1);
 
-    useEffect(() => {
-        if(feat) {
-            fetchFeatures(feat,page)
-            .then(data => setResult(data))
-        }
-    },[feat,page])
+  const [result, setResult] = useState<resultProps[]>([]);
 
-    const handlePage = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        event.preventDefault()
-        if(event.currentTarget.name === "next") {
-          setPage(prev => prev + 1)
-        } else {
-          setPage(prev => prev - 1)
-        }
-      }
+  useEffect(() => {
+    if (feat) {
+      fetchFeatures(feat, page).then((data) => setResult(data));
+    }
+  }, [feat, page]);
 
-    return (
+  const handlePage = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    event.preventDefault();
+    if (event.currentTarget.name === "next") {
+      setPage((prev) => prev + 1);
+    } else {
+      setPage((prev) => prev - 1);
+    }
+  };
+
+  return (
     <div>
-        <div className="flex flex-wrap">
-            {result && result.map((movie) => (
-                <div className="w-1/2 p-2">
-                    <Link className="" to={`/movie/${movie.id}`}>
-                        <img src={`${movie.poster_path ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}` : NoImage}`} alt="poster" className='' />
-                    </Link>
-                </div>
-               
-            ))}
-        </div>
-        <div className="join grid grid-cols-2 lg:w-1/3 lg:mx-auto">
-            <button name="back"  onClick={handlePage} className={`${page === 1 ? "btn-disabled " : ""}join-item btn btn-outline`}>Previous page</button>
-            <button name="next" onClick={handlePage} className="join-item btn btn-outline">Next</button>
-        </div>
+      <div className="flex flex-wrap">
+        {result &&
+          result.map((movie) => (
+            <div className="w-1/2 p-2">
+              <Link className="" to={`/movie/${movie.id}`}>
+                <img
+                  src={`${
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                      : NoImage
+                  }`}
+                  alt="poster"
+                  className=""
+                />
+              </Link>
+            </div>
+          ))}
+      </div>
+      <div className="join grid grid-cols-2 lg:w-1/3 lg:mx-auto">
+        <button
+          name="back"
+          onClick={handlePage}
+          className={`${
+            page === 1 ? "btn-disabled " : ""
+          }join-item btn btn-outline`}
+        >
+          Previous page
+        </button>
+        <button
+          name="next"
+          onClick={handlePage}
+          className="join-item btn btn-outline"
+        >
+          Next
+        </button>
+      </div>
     </div>
-  )
+  );
 }

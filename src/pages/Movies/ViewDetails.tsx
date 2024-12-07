@@ -8,6 +8,7 @@ export default function ViewDetails() {
     const { format, movieId } = useParams()
     const [details, setDetails] = useState<resultProps | undefined>()
 
+    console.log(format)
     useEffect(() => {
 
         if (movieId && format) {
@@ -32,17 +33,17 @@ export default function ViewDetails() {
             {details &&
                 <div className='flex flex-col space-y-4 '>
                     <div className=' bg-gray-700 text-gray-300'>
-                            <div className='p-4 cghggyhtdddddddddddddddddddddddddddddddddddddddddddd]'>
+                        <div className='p-4 cghggyhtdddddddddddddddddddddddddddddddddddddddddddd]'>
                             <img className=" lg:w-1/3 w-96 rounded mx-auto" src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`} />
                         </div>
                         <div className='p-4'>
                             <div className='flex items-center gap-2'>
-                                
+
                                 <h1 className='font-bold text-2xl font-sans'>{details.title || details.name}</h1>
                                 {details.release_date ? <p className='text-xs'>({details?.release_date})</p> : null}
-                                
+
                             </div>
-                            
+
                             <div className='flex gap-2 text-sm'>
                                 <p>{details.adult ? "R" : "PG-13"}</p>
                                 <p>{details.runtime}m</p>
@@ -65,7 +66,7 @@ export default function ViewDetails() {
                             <div className='py-4'>
                                 <h1 className='font-bold text-center'>Overview</h1>
                                 <p>{details.overview}</p>
-                                
+
                             </div>
                             <div className='text-right'>
                                 <SaveButton movie={details} />
@@ -74,7 +75,7 @@ export default function ViewDetails() {
 
                         </div>
 
-                      
+
 
                     </div>
 
