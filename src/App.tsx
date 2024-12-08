@@ -8,6 +8,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ViewFeature from "./pages/ViewFeature";
 import Header from "./components/Header";
 import PagePersons from "./pages/PopularPersons/PagePersons";
+import SearchPage from "./pages/SearchPage";
 
 const queryClient = new QueryClient();
 
@@ -18,11 +19,12 @@ function App() {
         <Router>
           <div
             data-theme={"aqua"}
-            className=" bg-gradient-to-tr to-gray-600 from-black text-gray-200 min-h-screen lg:w-2/3 lg:mx-auto"
+            className="bg-black text-gray-200 min-h-screen  px-12 py-10 "
           >
             <Header />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/search" element={<SearchPage />} />
               <Route path={`/:format/:movieId`} element={<ViewDetails />} />
               <Route path={`/feature/:feat`} element={<ViewFeature />} />
               <Route path="*" element={<ErrorPage />} />

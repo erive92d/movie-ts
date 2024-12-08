@@ -25,7 +25,7 @@ export default function Trending() {
   };
 
   return (
-    <div className="">
+    <div className="my-8 py-10">
       <div className="flex flex-col gap-1">
         <div className="flex justify-between p-3 bg-black items-center">
           <h1 className="text-2xl font-light ">
